@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> welcome to Virtual Lab - Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            margin-top: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .btn, input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn {
+            display: block;
+            font-size: 18px;
+            color: white;
+            background: #007BFF;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+    <script>
+        function showLogin(type) {
+            document.getElementById("selection").classList.add("hidden");
+            document.getElementById("student-login").classList.add("hidden");
+            document.getElementById("lecturer-login").classList.add("hidden");
+            document.getElementById(type + "-login").classList.remove("hidden");
+        }
+    </script>
+</head>
+<body>
+    <div class="container" id="selection">
+        <h1>Welcome to the Virtual Lab</h1>
+        <p>Please select your login page:</p>
+        <button class="btn" onclick="showLogin('student')">Student Login</button>
+        <button class="btn" onclick="showLogin('lecturer')">Lecturer Login</button>
+    </div>
+    
+    <div class="container hidden" id="student-login">
+        <h1>Student Login</h1>
+        <form action="student_dashboard.html" method="POST">
+            <div class="input-group">
+                <label for="reg_no">Registration No</label>
+                <input type="text" id="reg_no" name="reg_no" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn">Login</button>
+        </form>
+    </div>
+
+    <div class="container hidden" id="lecturer-login">
+        <h1>Lecturer Login</h1>
+        <form action="lecturer_dashboard.html" method="POST">
+            <div class="input-group">
+                <label for="lecturer_id">Lecturer ID</label>
+                <input type="text" id="lecturer_id" name="lecturer_id" required>
+            </div>
+            <div class="input-group">
+                <label for="lecturer_password">Password</label>
+                <input type="password" id="lecturer_password" name="lecturer_password" required>
+            </div>
+            <button type="submit" class="btn">Login</button>
+        </form>
+    </div>
+</body>
+</html>
